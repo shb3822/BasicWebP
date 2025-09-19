@@ -5,21 +5,43 @@
     <title>Message</title>
 </head>
 <body>
+
     <script>
-        // TODO: Add Hello code
-        function getMessage (name) {
-            return `Hello, my name is ${name}...`;
-        }   
+        function getMessage1(name) {
+            document.write(`안녕하세요! 제 이름은 ${name}입니다.<br>`);
+        }
 
-        const message = getMessage('hyobin');
-        document.write(message);
+        function getMessage2(job) {
+            document.write(`저는 ${job}로 일하고 있어요.<br>`);
+        }
 
-        // TODO: Add setTimeout code
-        setTimeout ( () => {document.write('...Hello again!')}, 2000);
+        function getMessage3(skill) {
+            document.write(`제가 가장 자신 있는 기술은 ${skill}입니다.<br>`);
+        }
 
-        
+        function getMessage4(hobby) {
+            document.write(`취미는 ${hobby}입니다.<br>`);
+        }
+
+        function getMessage5(goal) {
+            document.write(`저의 목표는 ${goal}입니다.<br>`);
+        }
+
+        const messages = [
+            () => getMessage1('효빈'),
+            () => getMessage2('프론트엔드 개발자'),
+            () => getMessage3('React'),
+            () => getMessage4('음악 감상'),
+            () => getMessage5('멋진 팀과 함께 성장하는 것')
+        ];
+
+        let index = 0;
+
+        setInterval(() => {
+            messages[index]();
+            index = (index + 1) % messages.length;
+        }, 3000);
     </script>
-    
-    
+
 </body>
 </html>
